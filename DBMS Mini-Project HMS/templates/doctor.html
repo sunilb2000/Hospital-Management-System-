@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block title %}
+DOCTORS
+{% endblock title %}
+
+{% block body %}
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-4 mt-4">
+
+  <div class="card" style="width: 18rem;">
+    <img src="static/images/doctor12.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title" style="color:black;"><b>HEALTH CHECK-UP SERVICES</b></h5>
+      <p class="card-text" style="color:rgb(16, 143, 202);">Stay with your Family</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <h4><li class="list-group-item" style="color:rgb(163, 16, 221);">Quality & Safety </li></h4>
+      <li class="list-group-item" style="color:rgb(18, 32, 158);">Be Happy and Stay <b>SAFE</b></li>
+      <li class="list-group-item" style="color:rgb(24, 2, 2);">Master Health Check-Up</li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link">Health-Care-Center</a>
+      <a href="#" class="card-link">HMS</a>
+   </div></div>
+</div>
+
+<div class="col-md-4">
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+<br>
+
+
+  
+  
+ 
+<h2 class="text-center text-white bg-primary">Doctors Booking</h2>
+
+<br>
+<form action="/doctors" method="post" class="jumbotron">
+
+<div class="form-group">
+
+<input type="email" class="form-control" name="email" value={{current_user.email}}  required>
+
+</div>
+
+<div class="form-group">
+
+<input type="text" class="form-control" name="doctorname" placeholder="Doctor Name" required>
+
+</div>
+
+
+<div class="form-group">
+
+<input type="text" class="form-control" name="dept" placeholder="Doctor Department" required>
+
+</div>
+
+
+  <button type="submit" class="btn btn-warning btn-sm btn-block">Book</button>
+
+</form>
+
+</div>
+
+<div class="col-md-4 mt-4">
+  <div class="card" style="width: 18rem;">
+    <img src="static/images/doctor11.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title" style="color:black;"><b>HIGH-TECH HOSPITAL </b></h5>
+      <p class="card-text" style="color:rgb(202, 16, 16);">Speciality Hospital</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <h4><li class="list-group-item" style="color:rgb(16, 47, 221);">Multispeciality Hospital</li></h4>
+      <li class="list-group-item" style="color:rgb(18, 158, 37);">We Do Care for You </li>
+      <li class="list-group-item" style="color:rgb(0, 123, 194);">A moment of your time is lifetime for someone.</li>
+      <li class="list-group-item" style="color:rgb(255, 6, 6);">DONATE BLOOD</li>
+    </ul>
+    <div class="card-body">
+      <a href="#" class="card-link">Register Slots</a>
+      <a href="#" class="card-link">HMS</a>
+    </div>
+  </div>
+  
+
+  
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+{% endblock body %}
